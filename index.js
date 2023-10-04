@@ -1,5 +1,5 @@
 const express = require('express')
-const router = require('./src/routes/cliente')
+const router = require('./src/routes/cachorro')
 
 const app = express()
 const port = 3000

@@ -1,0 +1,20 @@
+CREATE DATABASE petshop;
+
+CREATE TABLE clientes (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ nome VARCHAR(255) NOT NULL,
+ telefone VARCHAR(255) NOT NULL UNIQUE
+);
+
+INSERT INTO clientes (nome, telefone)
+VALUES ('João da Silva', '6969');
+
+
+CREATE TABLE cachorros (
+id INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(255) NOT NULL,
+dono int NOT NULL
+);
+
+ALTER TABLE cachorros
+ADD FOREIGN KEY (dono) REFERENCES clientes(id);

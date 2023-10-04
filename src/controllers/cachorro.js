@@ -1,12 +1,12 @@
-const ServiceCliente = require('../services/cliente')
-const service = new ServiceCliente()
+const ServiceCachorro = require('../services/cachorro')
+const service = new ServiceCachorro()
 
-class ControllerCliente{
-    async GetCliente(req,res){
+class ControllerCachorro{
+    async GetCachorro(req,res){
         try{
-            const resultado = await service.GetCliente(req.params.id)
+            const resultado = await service.GetCachorro(req.params.id)
             res.status(200).json({
-                cliente: resultado
+                cachorro: resultado
             })
         }catch(error){
             console.log(error)
@@ -16,11 +16,11 @@ class ControllerCliente{
         }
     }
 
-    async GetClientes(_,res){
+    async GetCachorros(_,res){
         try{
-            const resultado = await service.GetClientes()
+            const resultado = await service.GetCachorros()
             res.status(200).json({
-                clientes: resultado
+                cachorros: resultado
             })
         }catch(error){
             console.log(error)
@@ -30,11 +30,11 @@ class ControllerCliente{
         }
     }
 
-    async AddCliente(req,res){
+    async AddCachorro(req,res){
         try{
-            const resultado = await service.AddCliente(req.body.nome, req.body.telefone)
+            const resultado = await service.AddCachorro(req.body.nome, req.body.dono)
             res.status(200).json({
-                clientes: resultado
+                cachorro: resultado
             })
         }catch(error){
             console.log(error)
@@ -44,9 +44,9 @@ class ControllerCliente{
         }
     }
 
-    async UpdateCliente(req,res){
+    async UpdateCachorro(req,res){
         try{
-            const resultado = await service.UpdateCliente(req.params.id, req.body.nome, req.body.telefone)
+            const resultado = await service.UpdateCachorro(req.params.id, req.body.nome, req.body.dono)
             res.status(200).json({
                 cliente: resultado
             })
@@ -58,9 +58,9 @@ class ControllerCliente{
         }
     }
 
-    async DeleteCliente(req,res){
+    async DeleteCachorro(req,res){
         try{
-            const resultado = await service.DeleteCliente(req.params.id)
+            const resultado = await service.DeleteCachorro(req.params.id)
             res.status(200).json({
                 cliente: resultado
             })
@@ -73,4 +73,4 @@ class ControllerCliente{
     }
 }
 
-module.exports = ControllerCliente
+module.exports = ControllerCachorro
