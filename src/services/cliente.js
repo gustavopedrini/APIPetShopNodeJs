@@ -3,11 +3,11 @@ const cliente = new RepositorieCliente()
 
 class ServiceCliente{
 
-    async GetCliente(id){
+    async GetCliente(id, transaction){
         if(isNaN(id)){
             throw new Error("Parâmetro Inválido!")
         }
-        return cliente.GetCliente(id)
+        return cliente.GetCliente(id, transaction)
     }
 
     async GetClientes(){
@@ -30,6 +30,13 @@ class ServiceCliente{
             throw new Error("Parâmetro Inválido!")
         }
         return cliente.DeleteCliente(id)
+    }
+
+    async GetCachorrosCliente(id){
+        if(isNaN(id)){
+            throw new Error("Parâmetro Inválido!")
+        }
+        return cliente.GetCachorrosCliente(id)
     }
 }
 

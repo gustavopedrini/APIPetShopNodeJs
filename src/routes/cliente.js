@@ -9,5 +9,6 @@ router.get('/api/getclientes', controller.GetClientes)
 router.post('/api/addcliente', controller.AddCliente)
 router.put('/api/updatecliente/:id', controller.UpdateCliente)
 router.delete('/api/deletecliente/:id', controller.DeleteCliente)
+router.get('/api/getcachorroscliente/:id', controller.GetCachorrosCliente)
 
 module.exports = router

@@ -71,6 +71,20 @@ class ControllerCliente{
             })
         }
     }
+
+    async GetCachorrosCliente(req,res){
+        try{
+            const resultado = await service.GetCachorrosCliente(req.params.id)
+            res.status(200).json({
+                cachorros: resultado
+            })
+        }catch{
+            console.log(error)
+            res.status(500).json({
+                message: error
+            })
+        }
+    }
 }
 
 module.exports = ControllerCliente
