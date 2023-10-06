@@ -4,7 +4,7 @@ const service = new ServiceCachorro()
 class ControllerCachorro{
     async GetCachorro(req,res){
         try{
-            const resultado = await service.GetCachorro(req.params.id)
+            const resultado = await service.GetCachorro(req.params.cachorro_id)
             res.status(200).json({
                 cachorro: resultado
             })
@@ -32,7 +32,7 @@ class ControllerCachorro{
 
     async AddCachorro(req,res){
         try{
-            const resultado = await service.AddCachorro(req.body.nome, req.body.dono)
+            const resultado = await service.AddCachorro(req.body.nome, req.body.cliente_id)
             res.status(200).json({
                 cachorro: resultado
             })
@@ -46,7 +46,7 @@ class ControllerCachorro{
 
     async UpdateCachorro(req,res){
         try{
-            const resultado = await service.UpdateCachorro(req.params.id, req.body.nome, req.body.dono)
+            const resultado = await service.UpdateCachorro(req.params.cachorro_id, req.body.nome, req.body.cliente_id)
             res.status(200).json({
                 cliente: resultado
             })
@@ -60,7 +60,7 @@ class ControllerCachorro{
 
     async DeleteCachorro(req,res){
         try{
-            const resultado = await service.DeleteCachorro(req.params.id)
+            const resultado = await service.DeleteCachorro(req.params.cachorro_id)
             res.status(200).json({
                 cliente: resultado
             })

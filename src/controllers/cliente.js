@@ -4,7 +4,7 @@ const service = new ServiceCliente()
 class ControllerCliente{
     async GetCliente(req,res){
         try{
-            const resultado = await service.GetCliente(req.params.id)
+            const resultado = await service.GetCliente(req.params.cliente_id)
             res.status(200).json({
                 cliente: resultado
             })
@@ -74,11 +74,11 @@ class ControllerCliente{
 
     async GetCachorrosCliente(req,res){
         try{
-            const resultado = await service.GetCachorrosCliente(req.params.id)
+            const resultado = await service.GetCachorrosCliente(req.params.cliente_id)
             res.status(200).json({
                 cachorros: resultado
             })
-        }catch{
+        }catch(error){
             console.log(error)
             res.status(500).json({
                 message: error

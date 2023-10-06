@@ -3,11 +3,10 @@ const Cachorro = require('../models/cachorro')
 
 class RepositorieCliente{
 
-    async GetCliente(id, transaction){
+    async GetCliente(cliente_id, transaction){
         return Cliente.findOne({
-            where: { id },
-            transaction
-        },{
+            where: { cliente_id },
+            transaction,
             include: ['cachorros']
         })
     }
@@ -28,19 +27,19 @@ class RepositorieCliente{
             nome: nome,
             telefone: telefone
         },{
-            where: { id }
+            where: { cliente_id: id }
         })
     }
 
     async DeleteCliente(id){
         return Cliente.destroy({
-            where: { id }
+            where: { cliente_id: id }
         })
     }
 
-    async GetCachorrosCliente(id){
+    async GetCachorrosCliente(cliente_id){
         return Cachorro.findAll({
-            where: { dono: id }
+            where: { dono: cliente_id }
         })
     }
 }

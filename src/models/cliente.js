@@ -1,9 +1,10 @@
-const sequelize = require('../database')
-const { DataTypes } = require('sequelize');
 const Cachorro = require('./cachorro');
+const sequelize = require('../database');
+const { DataTypes } = require('sequelize');
 
 const Cliente = sequelize.define('clientes', {
-    id: {
+    cliente_id: {
+        field: 'cliente_id',
         primaryKey: true,
         autoIncrement: true,
         type: DataTypes.INTEGER
@@ -21,8 +22,8 @@ const Cliente = sequelize.define('clientes', {
 }, {
     createdAt: false,
     updatedAt: false
-}) // VAI DEFINIR UMA TABELA PARA ESSA CLASSE
+})
 
-Cachorro.belongsTo(Pessoa, { foreignKey})
+// Cliente.hasMany(Cachorro, { foreignKey: 'cliente_id'})
 
-module.exports = Cliente
+module.exports = Cliente;
