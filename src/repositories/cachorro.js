@@ -1,10 +1,12 @@
 const Cachorro = require('../models/cachorro')
+const Atendimento = require("../models/atendimento");
 
 class RepositorieCachorro{
 
     async GetCachorro(cachorro_id){
         return Cachorro.findOne({
-            where: { cachorro_id }
+            where: { cachorro_id },
+            include: [ Atendimento ]
         })
     }
 

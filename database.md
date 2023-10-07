@@ -12,8 +12,19 @@ CREATE TABLE cachorros (
     cliente_id int NOT NULL
 );
 
+CREATE TABLE atendimentos (
+    atendimento_id INT AUTO_INCREMENT PRIMARY KEY, 
+    data DATE NOT NULL, 
+    hora TIME NOT NULL, 
+    concluido BOOLEAN NOT NULL,
+    cachorro_id INT NOT NULL 
+); 
+
 ALTER TABLE cachorros
 ADD FOREIGN KEY (cliente_id) REFERENCES clientes(cliente_id);
+
+ALTER TABLE atendimentos 
+ADD FOREIGN KEY (cachorro_id) REFERENCES cachorros(cachorro_id);
 
 INSERT INTO clientes (nome, telefone)
 VALUES ('João da Silva', '(46) 92255-5252'),

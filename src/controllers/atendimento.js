@@ -1,12 +1,12 @@
-const ServiceCachorro = require('../services/cachorro')
-const service = new ServiceCachorro()
+const ServiceAtendimento = require('../services/atendimento')
+const service = new ServiceAtendimento()
 
-class ControllerCachorro{
-    async GetCachorro(req,res){
+class ControllerAtendimento{
+    async GetAtendimento(req,res){
         try{
-            const resultado = await service.GetCachorro(req.params.cachorro_id)
+            const resultado = await service.GetAtendimento(req.params.atendimento_id)
             res.status(200).json({
-                cachorro: resultado
+                atendimento: resultado
             })
         }catch(error){
             console.log(error)
@@ -16,11 +16,11 @@ class ControllerCachorro{
         }
     }
 
-    async GetCachorros(_,res){
+    async GetAtendimentos(_,res){
         try{
-            const resultado = await service.GetCachorros()
+            const resultado = await service.GetAtendimentos()
             res.status(200).json({
-                cachorros: resultado
+                atendimentos: resultado
             })
         }catch(error){
             console.log(error)
@@ -30,11 +30,11 @@ class ControllerCachorro{
         }
     }
 
-    async AddCachorro(req,res){
+    async AddAtendimento(req,res){
         try{
-            const resultado = await service.AddCachorro(req.body.nome, req.body.cliente_id)
+            const resultado = await service.AddAtendimento(req.body.data, req.body.hora, req.body.concluido, req.body.cachorro_id)
             res.status(200).json({
-                cachorro: resultado
+                atendimento: resultado
             })
         }catch(error){
             console.log(error)
@@ -44,13 +44,13 @@ class ControllerCachorro{
         }
     }
 
-    async UpdateCachorro(req,res){
+    async UpdateAtendimento(req,res){
         try{
-            const resultado = await service.UpdateCachorro(req.params.cachorro_id, req.body.nome, req.body.cliente_id)
+            const resultado = await service.UpdateAtendimento(req.params.atendimento_id, req.body.data, req.body.hora, req.body.concluido, req.body.cachorro_id)
             res.status(200).json({
                 cliente: resultado
             })
-        }catch(error){
+        }catch{
             console.log(error)
             res.status(500).json({
                 message: error
@@ -58,13 +58,13 @@ class ControllerCachorro{
         }
     }
 
-    async DeleteCachorro(req,res){
+    async DeleteAtendimento(req,res){
         try{
-            const resultado = await service.DeleteCachorro(req.params.cachorro_id)
+            const resultado = await service.DeleteAtendimento(req.params.atendimento_id)
             res.status(200).json({
                 cliente: resultado
             })
-        }catch(error){
+        }catch{
             console.log(error)
             res.status(500).json({
                 message: error
@@ -73,4 +73,4 @@ class ControllerCachorro{
     }
 }
 
-module.exports = ControllerCachorro
+module.exports = ControllerAtendimento

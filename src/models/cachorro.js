@@ -1,10 +1,9 @@
-const Cliente = require('./cliente');
-const sequelize = require('../database');
 const { DataTypes } = require('sequelize');
+const sequelize = require('../database');
+const Atendimento = require('./atendimento');
 
 const Cachorro = sequelize.define('cachorros', {
     cachorro_id: {
-        field: 'cachorro_id',
         primaryKey: true,
         autoIncrement: true,
         type: DataTypes.INTEGER
@@ -19,7 +18,7 @@ const Cachorro = sequelize.define('cachorros', {
         field: 'cliente_id',
         type: DataTypes.INTEGER,
         references: {
-            model: Cliente,
+            model: 'clientes',
             key: 'cliente_id'
         }
     }
@@ -28,6 +27,7 @@ const Cachorro = sequelize.define('cachorros', {
     updatedAt: false
 });
 
-Cachorro.belongsTo(Cliente, { foreignKey: 'cliente_id'})
+Atendimento.belongsTo(Cachorro, { foreignKey: 'cachorro_id' })
+Cachorro.hasMany(Atendimento, { foreignKey: 'cachorro_id' });
 
 module.exports = Cachorro;
