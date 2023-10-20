@@ -1,4 +1,7 @@
 const ServiceUsuario = require('../services/usuario')
+const bcrypt = require("bcrypt")
+const jwt = require("jsonwebtoken")
+const config = require("../config")
 const service = new ServiceUsuario()
 
 class ControllerUsuario{
@@ -27,7 +30,8 @@ class ControllerUsuario{
 
         const token = jwt.sign({ // NUNCA COLOCAR SENHA AQUI!!!
             usuario_id: usuario.usuario_id,
-            email: usuario.email
+            email: usuario.email,
+            nivel_permissao: usuario.nivel_permissao // arrumar
         },
             config.secret
         )

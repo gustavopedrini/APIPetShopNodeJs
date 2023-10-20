@@ -24,7 +24,8 @@ CREATE TABLE atendimentos (
 CREATE TABLE usuarios (
     usuario_id INT AUTO_INCREMENT PRIMARY KEY, 
     email VARCHAR(255) NOT NULL,
-    senha VARCHAR(255) NOT NULL
+    senha VARCHAR(255) NOT NULL,
+    nivel_permissao INT NOT NULL DEFAULT '1'
 ); 
 
 ALTER TABLE cachorros

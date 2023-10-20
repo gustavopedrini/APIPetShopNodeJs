@@ -18,6 +18,10 @@ const Usuario = sequelize.define('usuarios', {
     senha: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+
+    nivel_permissao: {
+        type: DataTypes.INTEGER
     }
 }, {
     createdAt: false,
