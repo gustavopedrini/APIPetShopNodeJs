@@ -22,9 +22,10 @@ class RepositorieUsuario{
 
     async AddUsuario(email, senha){
         const hashSenha = await bcrypt.hash(senha, 12)
+        // verificar se o token tem perm de admin
 
         const result = await Usuario.create(
-            {email, senha: hashSenha}
+            {email, senha: hashSenha, nivel_permissao: 1}
         )
 
         return result;
