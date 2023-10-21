@@ -14,8 +14,8 @@ class ServiceCliente{
         return cliente.GetClientes()
     }
 
-    async AddCliente(nome, telefone){
-        return cliente.AddCliente(nome, telefone)
+    async AddCliente(email, senha, nome, telefone){
+        return cliente.AddCliente(email, senha, nome, telefone)
     }
 
     async UpdateCliente(id, nome, telefone){

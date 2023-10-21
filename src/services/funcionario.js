@@ -1,0 +1,43 @@
+const RepositorieFuncionario = require('../repositories/funcionario');
+const funcionario = new RepositorieFuncionario();
+
+class ServiceFuncionario{
+
+    async GetFuncionario(usuario_id, transaction){
+        if(isNaN(usuario_id)){
+            throw new Error("Parâmetro Inválido!");
+        }
+        return funcionario.GetFuncionario(usuario_id, transaction);
+    }
+
+    async GetFuncionarioPorEmail(email){
+        if(!email){
+            throw new Error("Parâmetro Inválido!");
+        }
+        return funcionario.GetFuncionarioPorEmail(email);
+    }
+
+    async GetFuncionarios(){
+        return funcionario.GetFuncionarios()
+    }
+
+    async AddFuncionario(email, senha, nivelPermissao){
+        return funcionario.AddFuncionario(email, senha, nivelPermissao)
+    }
+
+    async UpdateFuncionario(id, email, senha){
+        if(isNaN(id)){
+            throw new Error("Parâmetro Inválido!");
+        }
+        return funcionario.UpdateFuncionario(id, email, senha);
+    }
+
+    async DeleteFuncionario(id){
+        if(isNaN(id)){
+            throw new Error("Parâmetro Inválido!");
+        }
+        return funcionario.DeleteFuncionario(id);
+    }
+}
+
+module.exports = ServiceFuncionario

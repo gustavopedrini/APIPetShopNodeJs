@@ -32,7 +32,7 @@ class ControllerCliente{
 
     async AddCliente(req,res){
         try{
-            const resultado = await service.AddCliente(req.body.nome, req.body.telefone)
+            const resultado = await service.AddCliente(req.body.email, req.body.senha, req.body.nome, req.body.telefone)
             res.status(200).json({
                 clientes: resultado
             })
@@ -64,7 +64,7 @@ class ControllerCliente{
             res.status(200).json({
                 cliente: resultado
             })
-        }catch{
+        }catch(error){
             console.log(error)
             res.status(500).json({
                 message: error

@@ -1,3 +1,5 @@
+-- APAGAR NO PRODUTO FINAL, PRA NINGUÉM VER O BANCO --
+
 CREATE DATABASE petshop;
 
 CREATE TABLE clientes (
@@ -37,15 +39,14 @@ ADD FOREIGN KEY (cachorro_id) REFERENCES cachorros(cachorro_id);
 ALTER TABLE clientes 
 ADD FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id);
 
-INSERT INTO usuarios (email, senha)
-VALUES ('joao@gmail.com', '$2a$12$WZhH60xi.Yat23bZx68gFu68Zn5NTThglsaK1xmlW0YK2XE493mVG'),
-('gustavo@gmail.com', '$2a$12$CLNvKBYToL4FNcqlGMyKReprOPWk1o5IygShs0cvUvtjY9ZH/GfSC');
+INSERT INTO usuarios (email, senha, nivel_permissao)
+VALUES ('admin@gmail.com', '$2a$12$THi.ud68ZvwZVx0wVjltgOyECDcIQO2BJmXwusNRQ994aYq8QLkwK', '0'), -- SENHA: admin
+('atendente@gmail.com', '$2a$12$G0A..XlGHSYZAvl551DqX.OtHqYUVlvcN847rRA0dFPcULqmQCcBK', '2'), -- SENHA: atendente
+('usuario@gmail.com', '$2a$12$hy3VzZDzju9zyXE22Pt2wuySYUZer2Ye6vkS8jj3aL8cU3gXf./VS', '1'); -- SENHA: usuario
 
 INSERT INTO clientes (nome, telefone, usuario_id)
-VALUES ('João da Silva', '(46) 92255-5252', '1'),
-('Gustavo Pedrini', '(47) 98455-2969', '2');
+VALUES ('Usuário da Silva', '(46) 92255-5252', '3');
 
 INSERT INTO cachorros (nome, cliente_id)
 VALUES ('Camarelo', 1),
-('Sabixo', 1),
-('Cavalo', 2);
+('Sabixo', 1);

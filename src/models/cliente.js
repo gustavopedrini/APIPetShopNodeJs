@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../database');
 const Cachorro = require('./cachorro');
+const Usuario = require ('./usuario')
 
 const Cliente = sequelize.define('clientes', {
     cliente_id: {
@@ -18,6 +19,15 @@ const Cliente = sequelize.define('clientes', {
     telefone: {
         type: DataTypes.STRING,
         unique: true
+    },
+
+    usuario_id: {
+        field: 'usuario_id',
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'usuarios',
+            key: 'usuario_id'
+        }
     }
 }, {
     createdAt: false,

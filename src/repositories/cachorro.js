@@ -31,6 +31,10 @@ class RepositorieCachorro{
     }
 
     async DeleteCachorro(cachorro_id){
+        Atendimento.destroy({
+            where: { cachorro_id: cachorro_id }
+        })
+
         return Cachorro.destroy({
             where: { cachorro_id }
         })
