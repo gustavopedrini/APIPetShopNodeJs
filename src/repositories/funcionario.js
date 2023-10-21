@@ -18,21 +18,12 @@ class RepositorieFuncionario{
         })
     }
 
-    async AddFuncionario(email, senha, nivelPermissao){
+    async AddFuncionario(email, senha){
         const hashSenha = await bcrypt.hash(senha, 12)
-    
-        if (nivelPermissao === 0) { // Se for ADMIN (nivel_permissao = 0), criará um ATENDENTE (nivel_permissao = 2).
-            const result = await Funcionario.create(
-                {email, senha: hashSenha, nivel_permissao: 2}
-            )
-            return result;
-
-        } else { // Se NÃO for ADMIN (nivel_permissao = 0), criará um CLIENTE (nivel_permissao = 1).
-            const result = await Funcionario.create(
-                {email, senha: hashSenha, nivel_permissao: 1}
-            )
-            return result;
-        }
+        const result = await Funcionario.create(
+            {email, senha: hashSenha, nivel_permissao: 2}
+        )
+        return result;
     }
 
     async UpdateFuncionario(id, email, senha){

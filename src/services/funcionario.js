@@ -21,8 +21,8 @@ class ServiceFuncionario{
         return funcionario.GetFuncionarios()
     }
 
-    async AddFuncionario(email, senha, nivelPermissao){
-        return funcionario.AddFuncionario(email, senha, nivelPermissao)
+    async AddFuncionario(email, senha){
+        return funcionario.AddFuncionario(email, senha)
     }
 
     async UpdateFuncionario(id, email, senha){

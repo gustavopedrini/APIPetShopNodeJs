@@ -45,8 +45,8 @@ class ControllerFuncionario{
         const decodedToken = jwt.verify(req.headers['authorization'], config.secret);
         const nivelPermissao = decodedToken.nivel_permissao;
 
-        if (nivelPermissao === 0 || nivelPermissao === 2) {
-            const resultado = await service.AddFuncionario(req.body.email, req.body.senha, nivelPermissao)
+        if (nivelPermissao === 0 ) {
+            const resultado = await service.AddFuncionario(req.body.email, req.body.senha)
             res.status(200).json({
                 funcionario: resultado
             })

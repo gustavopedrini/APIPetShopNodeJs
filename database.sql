@@ -44,9 +44,9 @@ VALUES ('admin@gmail.com', '$2a$12$THi.ud68ZvwZVx0wVjltgOyECDcIQO2BJmXwusNRQ994a
 ('atendente@gmail.com', '$2a$12$G0A..XlGHSYZAvl551DqX.OtHqYUVlvcN847rRA0dFPcULqmQCcBK', '2'), -- SENHA: atendente
 ('usuario@gmail.com', '$2a$12$hy3VzZDzju9zyXE22Pt2wuySYUZer2Ye6vkS8jj3aL8cU3gXf./VS', '1'); -- SENHA: usuario
 
-INSERT INTO clientes (nome, telefone, usuario_id)
-VALUES ('Usuário da Silva', '(46) 92255-5252', '3');
+INSERT INTO clientes (cliente_id, nome, telefone, usuario_id)
+VALUES ('3', 'Usuário da Silva', '(46) 92255-5252', '3');
 
 INSERT INTO cachorros (nome, cliente_id)
-VALUES ('Camarelo', 1),
-('Sabixo', 1);
+VALUES ('Camarelo', 3),
+('Sabixo', 3);
