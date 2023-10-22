@@ -15,12 +15,15 @@ class ServiceCliente{
     }
 
     async AddCliente(email, senha, nome, telefone){
+        if(!email || !senha || !nome || !telefone){
+            throw new Error("Parâmetros Inválidos!")
+        }
         return cliente.AddCliente(email, senha, nome, telefone)
     }
 
     async UpdateCliente(id, nome, telefone){
-        if(isNaN(id)){
-            throw new Error("Parâmetro Inválido!")
+        if(isNaN(id) || !nome || !telefone){
+            throw new Error("Parâmetros Inválidos!")
         }
         return cliente.UpdateCliente(id,nome,telefone)
     }

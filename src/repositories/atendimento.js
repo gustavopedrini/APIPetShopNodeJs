@@ -25,7 +25,7 @@ class RepositorieAtendimento{
     }
 
     async UpdateAtendimento(atendimento_id, data, hora, valor, concluido, cachorro_id){
-        return Atendimento.update({
+        Atendimento.update({
             data: data,
             hora: hora,
             valor: valor,
@@ -34,12 +34,16 @@ class RepositorieAtendimento{
         },{
             where: { atendimento_id }
         })
+
+        return ({message: `Atendimento ${atendimento_id} atualizado com sucesso!`})
     }
 
     async DeleteAtendimento(atendimento_id){
-        return Atendimento.destroy({
+        Atendimento.destroy({
             where: { atendimento_id }
         })
+
+        return ({message: `Atendimento ${atendimento_id} deletado com sucesso!`})
     }
 }
 

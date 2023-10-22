@@ -42,12 +42,16 @@ class RepositorieCliente{
     }
 
     async DeleteCliente(id){
-        Usuario.destroy({
-            where: { usuario_id: id}
+        Cachorro.destroy({
+            where: { cliente_id: id }
         })
 
         Cliente.destroy({
             where: { cliente_id: id }
+        })
+
+        Usuario.destroy({
+            where: { usuario_id: id}
         })
 
         return ({message: `Cliente ${id} deletado com sucesso!`})

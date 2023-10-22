@@ -22,12 +22,14 @@ class RepositorieCachorro{
     }
 
     async UpdateCachorro(cachorro_id, nome, cliente_id){
-        return Cachorro.update({
+        Cachorro.update({
             nome: nome,
             cliente_id: cliente_id
         },{
             where: { cachorro_id }
         })
+
+        return ({message: `Cachorro ${cachorro_id} atualizado com sucesso!`})
     }
 
     async DeleteCachorro(cachorro_id){
@@ -35,9 +37,11 @@ class RepositorieCachorro{
             where: { cachorro_id: cachorro_id }
         })
 
-        return Cachorro.destroy({
+        Cachorro.destroy({
             where: { cachorro_id }
         })
+
+        return ({message: `Cachorro ${cachorro_id} deletado com sucesso!`})
     }
 }
 
