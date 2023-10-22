@@ -23,22 +23,26 @@ class RepositorieFuncionario{
         const result = await Funcionario.create(
             {email, senha: hashSenha, nivel_permissao: 2}
         )
-        return result;
+        return result
     }
 
     async UpdateFuncionario(id, email, senha){
-        return Funcionario.update({
+        Funcionario.update({
             email: email,
             senha: senha
         },{
             where: { usuario_id: id }
         })
+
+        return ({message: `Funcionário ${id} atualizado com sucesso!`})
     }
 
     async DeleteFuncionario(id){
-        return Funcionario.destroy({
+        Funcionario.destroy({
             where: { usuario_id: id }
         })
+
+        return ({message: `Funcionário ${id} deletado com sucesso!`})
     }
 }
 

@@ -14,15 +14,15 @@ class ServiceAtendimento{
         return repositorie.GetAtendimentos()
     }
 
-    async AddAtendimento(data, hora, concluido, cachorro_id){
-        return repositorie.AddAtendimento(data, hora, concluido, cachorro_id)
+    async AddAtendimento(data, hora, valor, concluido, cachorro_id){
+        return repositorie.AddAtendimento(data, hora, valor, concluido, cachorro_id)
     }
 
-    async UpdateAtendimento(atendimento_id, data, hora, concluido, cachorro_id){
+    async UpdateAtendimento(atendimento_id, data, hora, valor, concluido, cachorro_id){
         if(isNaN(atendimento_id)){
             throw new Error("Parâmetro Inválido!")
         }
-        return repositorie.UpdateAtendimento(atendimento_id, data, hora, concluido, cachorro_id)
+        return repositorie.UpdateAtendimento(atendimento_id, data, hora, valor, concluido, cachorro_id)
     }
 
     async DeleteAtendimento(atendimento_id){

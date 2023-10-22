@@ -19,6 +19,7 @@ CREATE TABLE atendimentos (
     atendimento_id INT AUTO_INCREMENT PRIMARY KEY, 
     data DATE NOT NULL, 
     hora TIME NOT NULL, 
+    valor DECIMAL(10,2) NOT NULL,
     concluido BOOLEAN NOT NULL,
     cachorro_id INT NOT NULL 
 ); 

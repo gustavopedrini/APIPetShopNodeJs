@@ -32,7 +32,7 @@ class ControllerAtendimento{
 
     async AddAtendimento(req,res){
         try{
-            const resultado = await service.AddAtendimento(req.body.data, req.body.hora, req.body.concluido, req.body.cachorro_id)
+            const resultado = await service.AddAtendimento(req.body.data, req.body.hora, req.body.valor, req.body.concluido, req.body.cachorro_id)
             res.status(200).json({
                 atendimento: resultado
             })
@@ -46,11 +46,11 @@ class ControllerAtendimento{
 
     async UpdateAtendimento(req,res){
         try{
-            const resultado = await service.UpdateAtendimento(req.params.atendimento_id, req.body.data, req.body.hora, req.body.concluido, req.body.cachorro_id)
+            const resultado = await service.UpdateAtendimento(req.params.atendimento_id, req.body.data, req.body.hora, req.body.valor, req.body.concluido, req.body.cachorro_id)
             res.status(200).json({
                 cliente: resultado
             })
-        }catch{
+        }catch(error){
             console.log(error)
             res.status(500).json({
                 message: error
@@ -64,7 +64,7 @@ class ControllerAtendimento{
             res.status(200).json({
                 cliente: resultado
             })
-        }catch{
+        }catch(error){
             console.log(error)
             res.status(500).json({
                 message: error

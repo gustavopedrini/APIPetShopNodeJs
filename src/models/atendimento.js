@@ -18,6 +18,11 @@ const Atendimento = sequelize.define('atendimentos', {
         allowNull: false
     },
 
+    valor : {
+        type: DataTypes.DECIMAL,
+        allowNull: false
+    },
+
     concluido : {
         type: DataTypes.BOOLEAN,
         allowNull: false

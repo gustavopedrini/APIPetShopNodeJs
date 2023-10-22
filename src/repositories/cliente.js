@@ -31,12 +31,14 @@ class RepositorieCliente{
     }
 
     async UpdateCliente(id, nome, telefone){
-        return Cliente.update({
+        Cliente.update({
             nome: nome,
             telefone: telefone
         },{
             where: { cliente_id: id }
         })
+
+        return ({message: `Cliente ${id} atualizado com sucesso!`})
     }
 
     async DeleteCliente(id){
@@ -44,9 +46,11 @@ class RepositorieCliente{
             where: { usuario_id: id}
         })
 
-        return Cliente.destroy({
+        Cliente.destroy({
             where: { cliente_id: id }
         })
+
+        return ({message: `Cliente ${id} deletado com sucesso!`})
     }
 }
 

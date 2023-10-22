@@ -22,12 +22,16 @@ class ServiceFuncionario{
     }
 
     async AddFuncionario(email, senha){
+        if(!email || !senha){
+            throw new Error("Parâmetros Inválidos!");
+        }
+
         return funcionario.AddFuncionario(email, senha)
     }
 
     async UpdateFuncionario(id, email, senha){
-        if(isNaN(id)){
-            throw new Error("Parâmetro Inválido!");
+        if(isNaN(id) || !email || !senha){
+            throw new Error("Parâmetros Inválido!");
         }
         return funcionario.UpdateFuncionario(id, email, senha);
     }

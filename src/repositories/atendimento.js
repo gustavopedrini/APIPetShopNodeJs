@@ -14,19 +14,21 @@ class RepositorieAtendimento{
         return Atendimento.findAll()
     }
 
-    async AddAtendimento(data, hora, concluido, cachorro_id){
+    async AddAtendimento(data, hora, valor, concluido, cachorro_id){
         return Atendimento.create({
             data: data,
             hora: hora,
+            valor: valor,
             concluido: concluido,
             cachorro_id: cachorro_id
         })
     }
 
-    async UpdateAtendimento(atendimento_id, data, hora, concluido, cachorro_id){
+    async UpdateAtendimento(atendimento_id, data, hora, valor, concluido, cachorro_id){
         return Atendimento.update({
             data: data,
             hora: hora,
+            valor: valor,
             concluido: concluido,
             cachorro_id: cachorro_id
         },{
