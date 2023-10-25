@@ -1,7 +1,5 @@
 const Funcionario = require('../models/usuario')
 const bcrypt = require('bcrypt')
-const jwt = require("jsonwebtoken")
-const config = require('../config')
 
 class RepositorieFuncionario{
 
@@ -31,7 +29,7 @@ class RepositorieFuncionario{
             email: email,
             senha: senha
         },{
-            where: { usuario_id: id }
+            where: { usuario_id: id, nivel_permissao: 2 }
         })
 
         return ({message: `Funcionário ${id} atualizado com sucesso!`})
@@ -39,7 +37,7 @@ class RepositorieFuncionario{
 
     async DeleteFuncionario(id){
         Funcionario.destroy({
-            where: { usuario_id: id }
+            where: { usuario_id: id, nivel_permissao: 2 }
         })
 
         return ({message: `Funcionário ${id} deletado com sucesso!`})

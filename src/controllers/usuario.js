@@ -1,10 +1,10 @@
-const ServiceLogin = require('../services/login')
+const ServiceUsuario = require('../services/usuario')
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 const config = require("../config")
-const service = new ServiceLogin()
+const service = new ServiceUsuario()
 
-class ControllerLogin{
+class ControllerUsuario{
     async Logar(req,res){
         const {email, senha} = req.body;
 
@@ -42,4 +42,4 @@ class ControllerLogin{
     }
 }
 
-module.exports = ControllerLogin
+module.exports = ControllerUsuario

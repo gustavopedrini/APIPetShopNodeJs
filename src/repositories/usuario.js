@@ -1,6 +1,6 @@
 const Usuario = require('../models/usuario')
 
-class RepositorieLogin{
+class RepositorieUsuario{
     async GetLoginPorEmail(email){
         return Usuario.findOne({
             where: { email }
@@ -8,4 +8,4 @@ class RepositorieLogin{
     }
 }
 
-module.exports = RepositorieLogin
+module.exports = RepositorieUsuario

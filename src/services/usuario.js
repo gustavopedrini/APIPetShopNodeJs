@@ -1,7 +1,7 @@
-const RepositorieLogin = require('../repositories/login');
-const login = new RepositorieLogin();
+const RepositorieUsuario = require('../repositories/usuario');
+const login = new RepositorieUsuario();
 
-class ServiceLogin{
+class ServiceUsuario{
     async GetLoginPorEmail(email){
         if(!email){
             throw new Error("Parâmetro Inválido!");
@@ -10,4 +10,4 @@ class ServiceLogin{
     }
 }
 
-module.exports = ServiceLogin
+module.exports = ServiceUsuario
